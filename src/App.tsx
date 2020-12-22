@@ -40,50 +40,59 @@ export default function App() {
       <div className="calendar-container">
         <div className="calendar-day inactive"></div>
         <div className="calendar-day">
-          <div className="day-number">1</div>
+          <div></div>
           <div className="pre"></div>
+          <span className="day-number">1</span>
           <span className="pch">18.45</span>
         </div>
         <div className="calendar-day">
-          <div className="day-number ghost">2</div>
+          <div className="ghost"></div>
           <div className="pre"></div>
           <span className="pch">7.64</span>
+          <span className="day-number">2</span>
         </div>
         <div className="calendar-day">
-          <div className="day-number">3</div>
+          <div />
           <div className="pre"></div>
           <div className="new-trip"></div>
           <div className="pay-protected"></div>
           <span className="pch">11.33</span>
+          <span className="day-number">3</span>
         </div>
         <div className="calendar-day">
-          <div className="day-number">4</div>
-          <div className="post"></div>
-          <div></div>
-          <div className="pay-protected"></div>
+          <div />
+          <div className="post" />
+          <div />
+          <div className="pay-protected" />
           <span className="pch">3.82</span>
+          <span className="day-number">4</span>
         </div>
         <div className="calendar-day">
-          <div className="day-number">5</div>
+          <div />
           <div className="pre"></div>
           <div className="outside-rap"></div>
           <span className="pch">14.55</span>
+          <span className="day-number">5</span>
         </div>
         <div className="calendar-day">
           <div className="post"></div>
           <span className="pch">9.55</span>
+          <span className="day-number">6</span>
         </div>
         <div className="calendar-day">
           <div className="post"></div>
           <span className="pch">11.50</span>
+          <span className="day-number">7</span>
         </div>
         <div className="calendar-day">
           <div className="post"></div>
           <span className="pch">8.00</span>
+          <span className="day-number">8</span>
         </div>
         <div className="calendar-day">
           <div className="post"></div>
           <span className="pch">9.55</span>
+          <span className="day-number">9</span>
         </div>
         <div className="calendar-day inactive"></div>
         <div className="calendar-day inactive"></div>

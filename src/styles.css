@@ -35,6 +35,7 @@ body {
 }
 
 .day-number {
+  position: absolute;
   font-size: 5vw;
 }
 
