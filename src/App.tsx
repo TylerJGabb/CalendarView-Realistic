@@ -5,14 +5,13 @@ import { palette } from "./palette";
 
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
-import { debounce } from "./utils";
 
 dayjs.extend(weekday);
 dayjs.extend(weekOfYear);
 
 const DAYS_OF_WEEK = ["M", "T", "W", "T", "F", "S", "S"];
 
-function squareizeCalendarDays() {
+function squarify() {
   let days: any = document.getElementsByClassName("calendar-day");
   days = Array.from(days);
   for (let day of days) {
@@ -21,12 +20,25 @@ function squareizeCalendarDays() {
   }
 }
 
+/* https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox */
+export type DotProps = {
+  type: keyof typeof palette;
+};
+const Dot = ({ type }: DotProps) => {
+  const fill = palette[type];
+  return (
+    <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="5" cy="5" r="4" fill={fill} />
+    </svg>
+  );
+};
+
 export default function App() {
   useEffect(() => {
-    squareizeCalendarDays();
-    // does debouncing do anything?
+    squarify();
+    // does debouncing do anything? it doesn't seem to help much
     // window.addEventListener("resize", debounce(resize, 10));
-    window.addEventListener("resize", squareizeCalendarDays);
+    window.addEventListener("resize", squarify);
   }, []);
   return (
     <div className="main">
@@ -40,61 +52,26 @@ export default function App() {
       <div className="calendar-container">
         <div className="calendar-day inactive"></div>
         <div className="calendar-day">
-          <div></div>
-          <div className="pre"></div>
-          <span className="day-number">1</span>
-          <span className="pch">18.45</span>
+          <div className="day-number">7</div>
+          <Dot type="post" />
+          <Dot type="ghost" />
+          <Dot type="newTrip" />
+          <Dot type="outsideRap" />
+          <div className="pch">99.99h</div>
         </div>
         <div className="calendar-day">
-          <div className="ghost"></div>
-          <div className="pre"></div>
-          <span className="pch">7.64</span>
-          <span className="day-number">2</span>
+          <div className="day-number">12</div>
+          <Dot type="pre" />
+          <Dot type="ghost" />
+          <div className="pch">1.05h</div>
         </div>
         <div className="calendar-day">
-          <div />
-          <div className="pre"></div>
-          <div className="new-trip"></div>
-          <div className="pay-protected"></div>
-          <span className="pch">11.33</span>
-          <span className="day-number">3</span>
+          <div className="day-number">23</div>
+          <Dot type="payProtected" />
+          <Dot type="post" />
+          <div className="pch">18.45h</div>
         </div>
-        <div className="calendar-day">
-          <div />
-          <div className="post" />
-          <div />
-          <div className="pay-protected" />
-          <span className="pch">3.82</span>
-          <span className="day-number">4</span>
-        </div>
-        <div className="calendar-day">
-          <div />
-          <div className="pre"></div>
-          <div className="outside-rap"></div>
-          <span className="pch">14.55</span>
-          <span className="day-number">5</span>
-        </div>
-        <div className="calendar-day">
-          <div className="post"></div>
-          <span className="pch">9.55</span>
-          <span className="day-number">6</span>
-        </div>
-        <div className="calendar-day">
-          <div className="post"></div>
-          <span className="pch">11.50</span>
-          <span className="day-number">7</span>
-        </div>
-        <div className="calendar-day">
-          <div className="post"></div>
-          <span className="pch">8.00</span>
-          <span className="day-number">8</span>
-        </div>
-        <div className="calendar-day">
-          <div className="post"></div>
-          <span className="pch">9.55</span>
-          <span className="day-number">9</span>
-        </div>
-        <div className="calendar-day inactive"></div>
+        <div className="calendar-day" />
         <div className="calendar-day inactive"></div>
         <div className="calendar-day inactive"></div>
         <div className="calendar-day inactive"></div>
