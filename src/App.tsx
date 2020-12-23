@@ -36,9 +36,8 @@ const Dot = ({ type }: DotProps) => {
 export default function App() {
   useEffect(() => {
     squarify();
-    // does debouncing do anything? it doesn't seem to help much
-    // window.addEventListener("resize", debounce(resize, 10));
     window.addEventListener("resize", squarify);
+    return () => window.removeEventListener("resize", squarify);
   }, []);
   return (
     <div className="main">
